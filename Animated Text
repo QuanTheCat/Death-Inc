@@ -4,10 +4,17 @@ using UnityEngine.UI;
 
 
 public class AnimatedText : MonoBehaviour {
-    public Text textArea;
+
+
+ public Text textArea;
+ 
  public string[] strings;
+ 
  public float speed = 0.1f;
+ 
+ 
  int stringIndex = 0;
+ 
  int characterIndex = 0;
 
 	// Use this for initialization
@@ -33,7 +40,7 @@ StartCoroutine (DisplayTimer ());
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.Space)) //This will allow me to skip and speed up dialogue//
+        if (Input.GetKeyDown(KeyCode.Space)) //This will allow me to skip and speed up NPC's text//
         {
 
             if (characterIndex < strings[stringIndex].Length)
