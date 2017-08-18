@@ -3,24 +3,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class AnimatedText : MonoBehaviour {
+public class AnimatedText : MonoBehaviour
+{
+
+    public bool Scene1textover = false;
+    public float i = 0;
+    public Text textArea;
+    public string[] strings;
+    public float speed = 0.1f;
+
+    int stringIndex = 0;
+    int characterIndex = 0;
 
 
- public Text textArea;
- 
- public string[] strings;
- 
- public float speed = 0.1f;
- 
- 
- int stringIndex = 0;
- 
- int characterIndex = 0;
-
-	// Use this for initialization
-void Start () {
-StartCoroutine (DisplayTimer ());
-}
+    // Use this for initialization
+    void Start()
+    {
+        StartCoroutine(DisplayTimer());
+    }
 
     IEnumerator DisplayTimer()
     {
@@ -38,9 +38,10 @@ StartCoroutine (DisplayTimer ());
         }
     }
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
-        if (Input.GetKeyDown(KeyCode.Space)) //This will allow me to skip and speed up NPC's text//
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 
             if (characterIndex < strings[stringIndex].Length)
@@ -54,10 +55,29 @@ StartCoroutine (DisplayTimer ());
 
                 characterIndex = 0;
 
+                //Making a counter so I can activate a boolean to be refrenced in different scripts//
+
+                i += 1;
+
+                {
 
                 }
+
+                if (i == 10)
+                {
+                         Debug.Log("ScenetextOver1");
+                         Scene1textover = true;
+                     }
+                      if (Scene1textover == true)
+                     {
+                          Debug.Log("Boolean for scene one is true");
+                     }
+                }
             }
+
         }
-    }
+    
 }
+	
+
 
